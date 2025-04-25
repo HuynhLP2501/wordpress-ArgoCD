@@ -44,7 +44,13 @@ spec:
               value: {{ .Values.wordpress.blogName }}
           volumeMounts:
             - name: wordpress-data
-              mountPath: /var/www/html
+              mountPath: /var/www/html         
+        - name: metrics-exporter
+          image: nginx/nginx-prometheus-exporter
+          ports:
+            - containerPort: 9113
+          args:
+            - -nginx.scrape-uri=http://localhost:80/status     
       volumes:
         - name: wordpress-data
           persistentVolumeClaim:
