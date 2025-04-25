@@ -1,0 +1,39 @@
+replicaCount: 1
+
+image:
+  repository: wordpress
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+wordpress:
+  username: admin
+  password: wordpress-admin-password
+  email: user@example.com
+  blogName: My Custom WordPress Site
+
+externalDatabase:
+  host: mysql.custom-wordpress.svc.cluster.local
+  port: 3306
+  user: wordpress_user
+  password: wordpress_password
+  database: wordpress_db
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+
+resources: {}
+
+# LAB 3
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
