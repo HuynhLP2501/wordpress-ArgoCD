@@ -12,7 +12,7 @@ service:
 wordpress:
   username: admin
   password: wordpress-admin-password
-  email: user@example.com
+  email: phihl@ctin.com
   blogName: My Custom WordPress Site
 
 externalDatabase:
@@ -39,5 +39,5 @@ hpa:
   targetCPUUtilizationPercentage: 70
 ingress:
   enabled: true
-  hostname: wordpress.example.com
+  hostname: phi-wordpress.com
   tls: true
