@@ -39,5 +39,6 @@ hpa:
   targetCPUUtilizationPercentage: 70
 ingress:
   enabled: true
-  hostname: binhphanvlg.infinityfreeapp.com
+  hostname: phi-wordpress.com
   tls: true
+  tlshost: binhphanvlg.infinityfreeapp.com
